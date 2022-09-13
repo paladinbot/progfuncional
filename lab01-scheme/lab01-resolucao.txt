@@ -1,0 +1,86 @@
+1) 
+a) (define (vol_esf r) (* (* 4.1887) (* r r r)))
+(vol_esf 2)  
+b) (define (area_circ r) (* (* 3.1415) (* r r)))
+(area_circ 2)
+c) (define (conta-nao-zero list) 
+    (if (= car(list) 0) 
+        conta-nao-zero cdr(list)
+        (+ 1 conta-nao-zero cdr(list))   
+    )
+    
+   )
+
+(count_list '(1 2 3 4))
+
+2)
+As expressões válidas são "a, c, e, h, i"
+
+3)
+    a) Ira fazer o calculo lambda
+    b) Ira fazer o calculo lambda e retornara o resultado
+    c) Ira fazer o calculo lambda e retornara um vetor de resultados
+
+4)  No primeiro procedimento:
+    (let ((x 1)) (let ((x 2) (y (* x 2))) y))
+    o comando o atribui o valor de x será o primeiro let (tornando x = 1 e y = 2x = 2), retornando 2 (valor de y)
+    Já no segundo procedimento:
+    (let ((x 1)) (let* ((x 2) (y (* x 2))) y))
+    o comando que atribui o valor de x será o segundo let (tornando x = 2 e y = 2x = 4), retornando 4 (valor de y)
+
+5) (define (temp_fah t_c) (+ (* (/ 9 5) t_c) 18))
+   (define (temp_cel t_f) (+ (* (/ 5 9) (- t_f 18))))
+
+6) (define (distance x1 x2 y1 y2) 
+        (sqrt 
+            (+ 
+                (expt 
+                    (-
+                        (expt x2 2) 
+                        (expt x1 2)
+                    ) 
+                    0.5
+                )
+                (expt 
+                    (-
+                        (expt y2 2) 
+                        (expt y1 2)
+                    ) 
+                    0.5
+                )
+                
+            )
+        )
+   )
+
+7)
+
+8) 
+    (memq 'a '(a b c))
+    (define (contains list x)
+        (cond [(null? list) #f]
+            [(equal? (car list) x) (cons x list)]
+            [else (contains (cdr list) x)]))
+
+
+    (contains '(4 1 0 2 0 1 3) 3)
+
+9) (define (sum list)
+        (if (null? list) 0 
+            (+ (car list) (sum (cdr list)))
+        )
+    )
+
+(define x (list 10 60 3 55 15 45 40))
+
+(define (average x)
+    (/ (sum x) (length x))
+)
+
+(define (up_average list value)
+    (if (null? list) 0
+        (if (>= (car list) value) 
+            (+ (up_average (cdr list) value) 1) 0
+        )
+    )
+)
